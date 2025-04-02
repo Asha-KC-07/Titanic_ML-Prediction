@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival Prediction</title>
+</head>
+<body>
+    <h1>Titanic Survival Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="Pclass">Passenger Class (1, 2, or 3):</label>
+        <input type="number" name="Pclass" id="Pclass" min="1" max="3" required>
+        <br><br>
+        
+        <label for="Age">Age:</label>
+        <input type="number" step="any" name="Age" id="Age" required>
+        <br><br>
+        
+        <label for="SibSp">Number of Siblings Aboard:</label>
+        <input type="number" name="SibSp" id="SibSp" required>
+        <br><br>
+        
+        <label for="Parch">Number of Parents/Children Aboard:</label>
+        <input type="number" name="Parch" id="Parch" required>
+        <br><br>
+        
+        <label for="Fare">Fare:</label>
+        <input type="number" step="any" name="Fare" id="Fare" required>
+        <br><br>
+        
+        <label for="Sex">Sex:</label>
+        <select name="Sex" id="Sex">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select>
+        <br><br>
+        
+        <label for="Embarked">Port of Embarkation:</label>
+        <select name="Embarked" id="Embarked">
+            <option value="C">Cherbourg (C)</option>
+            <option value="Q">Queenstown (Q)</option>
+            <option value="S">Southampton (S)</option>
+        </select>
+        <br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    <br>
+    <!-- Display prediction result -->
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
